@@ -5,8 +5,9 @@ set nocompatible
 filetype off
 execut "set rtp+=".expand("<sfile>:h")."/vim/bundle/vundle"
 call vundle#rc()
+let g:vundle_default_git_proto = 'git'
 Bundle 'gmarik/vundle'
-Bundle 'tpope/git-fugitive'
+Bundle 'tpope/vim-fugitive'
 
 " Fortran
 let fortran_free_source=1
