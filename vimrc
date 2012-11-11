@@ -8,6 +8,7 @@ call vundle#rc()
 let g:vundle_default_git_proto = 'git'
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-git'
 
 " Fortran
 let fortran_free_source=1
