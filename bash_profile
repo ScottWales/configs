@@ -3,7 +3,7 @@
 # Set up ssh agent
 # ================
 # Check for existing agent
-: ${SSH_AGENT_PID:=0}
+: ${SSH_AGENT_PID:=1}
 if [ -f ~/.ssh/agent ]; then
     source ~/.ssh/agent > /dev/null
 fi
