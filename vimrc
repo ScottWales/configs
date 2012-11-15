@@ -1,13 +1,14 @@
 set nocompatible
 set showcmd
 set ruler
+set laststatus=2
 
 " Fortran
 let fortran_free_source=1
 
 " Syntax highlighting
 filetype on
-filetype plugin on
+filetype plugin indent on
 syntax enable
 
 " Tab handling
