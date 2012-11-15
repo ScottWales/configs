@@ -25,9 +25,12 @@ endif
 " Fortran
 let fortran_free_source=1
 
-" Syntax highlighting
+" Syntax highlighting & colours
 filetype plugin indent on
 syntax enable
+set background=dark
+set t_Co=256
+colorscheme solarized
 
 " Status bar
 set laststatus=2
