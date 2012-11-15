@@ -8,6 +8,7 @@ let hostname = substitute(system('hostname'),'\n','','')
 
 " Load Bundles:
 " =============
+" Mac needs filetype to be toggled, else vim's return code will be nonzero
 filetype on
 filetype off
 if hostname != 'accesscollab' " Collab doesn't have git
