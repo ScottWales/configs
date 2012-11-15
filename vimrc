@@ -1,7 +1,20 @@
 set nocompatible
-set showcmd
-set ruler
-set laststatus=2
+
+" Swap ; and :
+nnoremap ; :
+nnoremap : ;
+
+" Load Bundles:
+" =============
+filetype on
+filetype off
+execute "set rtp+=".expand("<sfile>:h")."/vim/bundle/vundle"
+call vundle#rc()
+let g:vundle_default_git_proto = 'git'
+Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-git'
+Bundle 'Rip-Rip/clang_complete'
 
 " Fortran
 let fortran_free_source=1
@@ -10,6 +23,11 @@ let fortran_free_source=1
 filetype on
 filetype plugin indent on
 syntax enable
+
+" Status bar
+set laststatus=2
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+set showcmd
 
 " Tab handling
 set expandtab
@@ -22,10 +40,6 @@ set ignorecase
 set smartcase
 set incsearch
 set hlsearch
-
-" Swap ; and :
-nnoremap ; :
-nnoremap : ;
 
 " Indenting
 set cinoptions=(0 " Align at open brackets
