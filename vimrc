@@ -4,17 +4,22 @@ set nocompatible
 nnoremap ; :
 nnoremap : ;
 
+let hostname = substitute(system('hostname'),'\n','','')
+
 " Load Bundles:
 " =============
 filetype on
 filetype off
-execute "set rtp+=".expand("<sfile>:h")."/vim/bundle/vundle"
-call vundle#rc()
-let g:vundle_default_git_proto = 'git'
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-git'
-Bundle 'Rip-Rip/clang_complete'
+if hostname != 'accesscollab' " Collab doesn't have git
+    execute "set rtp+=".expand("<sfile>:h")."/vim/bundle/vundle"
+    call vundle#rc()
+    let g:vundle_default_git_proto = 'git'
+    Bundle 'gmarik/vundle'
+    Bundle 'tpope/vim-fugitive'
+    Bundle 'tpope/vim-git'
+    Bundle 'Rip-Rip/clang_complete'
+    Bundle 'altercation/vim-colors-solarized'
+endif
 
 " Fortran
 let fortran_free_source=1
