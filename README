@@ -1,3 +1,5 @@
-Shared configuration files
+Portable config files
+=====================
 
-Configurations to be replicated across all my machines
+Configuration files for me to use on all machines I use, handling environment
+and editor preferences.
