@@ -13,4 +13,4 @@ export EDITOR=vim
 export GEDITOR=gvim
 
 configpath="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source <(dircolors $configpath/dircolors)
+eval $(dircolors $configpath/dircolors)
