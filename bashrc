@@ -5,7 +5,7 @@ if [ -n "$DISPLAY" -a "$TERM" == "xterm" ]; then
     export TERM=xterm-256color
 fi
 if [ -n "$PS1" ]; then
-    PROMPT_COMMAND='qjobs=$(qstat -u $USER | grep $USER | wc -l)'
+    PROMPT_COMMAND='qjobs=$(qstat -u $USER | grep -c $USER )'
     PS1="\u\[\e[1;31m\]@\h\[\e[m\] \$qjobs \[\033[0;34m\]\W\[\033[m\] \[\033[1;37m\]$\[\033[m\] "
 fi
 
