@@ -14,7 +14,7 @@ let g:vundle_default_git_proto = 'git'
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
-Bundle 'Rip-Rip/clang_complete'
+" Bundle 'Rip-Rip/clang_complete'
 
 " Fortran
 let fortran_free_source=1
