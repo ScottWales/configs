@@ -7,7 +7,7 @@ fi
 if [ -n "$PS1" ]; then
     qjobs=0
     rjobs=0
-    if [ -n "$(which qstat)" ]; then
+    if [ -n "$(which qstat 2> /dev/null)" ]; then
         PROMPT_COMMAND='qjobs=$(qstat -u $USER | grep -c $USER);\
                         rjobs=$(qstat -u $USER | grep -c -e "\<$USER\>.*\<R\>");'
     fi
