@@ -18,7 +18,6 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'msanders/snipmate.vim'
 " Bundle 'Rip-Rip/clang_complete'
 
 " Fortran
