@@ -60,5 +60,6 @@ fun ReplacePlaceholders()
     %s/<FILE>/\=expand("%")/ge
     %s/<YEAR>/\=strftime("%Y")/ge
     %s/<GUARD>/\=substitute(toupper(expand("%")),"\\.","_","g")/ge
+    %s/<AUTHOR>/Scott Wales (scott.wales@unimelb.edu.au)/ge
 endfun
 autocmd BufNewFile *.c,%.cpp,*.h,*.f90 call ReplacePlaceholders()
