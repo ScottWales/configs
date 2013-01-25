@@ -4,6 +4,8 @@ set nocompatible
 nnoremap ; :
 nnoremap : ;
 
+execute "set rtp+=".expand("<sfile>:h")."/vim"
+
 " Load Bundles:
 " =============
 filetype on
@@ -14,6 +16,7 @@ let g:vundle_default_git_proto = 'git'
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
+Bundle 'msanders/snipmate.vim'
 " Bundle 'Rip-Rip/clang_complete'
 
 " Fortran
@@ -43,3 +46,13 @@ set hlsearch
 
 " Indenting
 set cinoptions=(0 " Align at open brackets
+
+autocmd BufNewFile *.c,*.cpp,*.h 0r <sfile>:h/vim/templates/c
+autocmd BufNewFile *.f90 0r <sfile>:h/vim/templates/f
+autocmd BufNewFile *.h $r <sfile>:h/vim/templates/h
+fun ReplacePlaceholders()
+    %s/<FILE>/\=expand("%")/ge
+    %s/<YEAR>/\=strftime("%Y")/ge
+    %s/<GUARD>/\=substitute(toupper(expand("%")),"\\.","_","g")/ge
+endfun
+autocmd BufNewFile *.c,%.cpp,*.h,*.f90 call ReplacePlaceholders()
