@@ -33,6 +33,8 @@ let c_space_errors = 1
 let c_C99 = 1
 let c_impl_defined = 1
 
+let fortran_do_enddo=1
+
 " Status bar
 set laststatus=2
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
