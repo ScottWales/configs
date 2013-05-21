@@ -66,8 +66,8 @@ autocmd BufNewFile *.hpp $r <sfile>:h/vim/templates/hpp
 fun ReplacePlaceholders()
     %s/<FILE>/\=expand("%")/ge
     %s/<YEAR>/\=strftime("%Y")/ge
-    %s/<GUARD>/\=substitute(toupper(expand("%")),"\\.","_","g")/ge
+    %s/<GUARD>/\=substitute(toupper(fnamemodify(expand("%"),":t")),"\\.","_","g")/ge
     %s/<AUTHOR>/Scott Wales <scott.wales@unimelb.edu.au>/ge
 endfun
-autocmd BufNewFile *.c,%.cpp,*.h,*.f90 call ReplacePlaceholders()|normal G
+autocmd BufNewFile *.c,*.cpp,*.h,*.hpp,*.f90 call ReplacePlaceholders()|normal G
 autocmd BufNewFile *.sh,*.py call ReplacePlaceholders()|normal G
