@@ -57,16 +57,17 @@ set hlsearch
 " Indenting
 set cinoptions=(0 " Align at open brackets
 
-autocmd BufNewFile *.c,*.cpp,*.h 0r <sfile>:h/vim/templates/c
+autocmd BufNewFile *.c,*.cpp,*.h,*.hpp 0r <sfile>:h/vim/templates/c
 autocmd BufNewFile *.f90 0r <sfile>:h/vim/templates/f
 autocmd BufNewFile *.sh 0r <sfile>:h/vim/templates/sh
 autocmd BufNewFile *.py 0r <sfile>:h/vim/templates/py
 autocmd BufNewFile *.h $r <sfile>:h/vim/templates/h
+autocmd BufNewFile *.hpp $r <sfile>:h/vim/templates/hpp
 fun ReplacePlaceholders()
     %s/<FILE>/\=expand("%")/ge
     %s/<YEAR>/\=strftime("%Y")/ge
     %s/<GUARD>/\=substitute(toupper(expand("%")),"\\.","_","g")/ge
-    %s/<AUTHOR>/Scott Wales (scott.wales@unimelb.edu.au)/ge
+    %s/<AUTHOR>/Scott Wales <scott.wales@unimelb.edu.au>/ge
 endfun
 autocmd BufNewFile *.c,%.cpp,*.h,*.f90 call ReplacePlaceholders()|normal G
 autocmd BufNewFile *.sh,*.py call ReplacePlaceholders()|normal G
