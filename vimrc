@@ -22,6 +22,7 @@ Bundle 'altercation/vim-colors-solarized'
 " Bundle 'Rip-Rip/clang_complete'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'scrooloose/syntastic'
+Bundle 'rodjek/vim-puppet'
 
 " Fortran
 let fortran_free_source=1
