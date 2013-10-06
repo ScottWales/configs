@@ -69,6 +69,7 @@ autocmd BufNewFile *.sh 0r <sfile>:h/vim/templates/sh
 autocmd BufNewFile *.py 0r <sfile>:h/vim/templates/py
 autocmd BufNewFile *.h $r <sfile>:h/vim/templates/h
 autocmd BufNewFile *.hpp $r <sfile>:h/vim/templates/hpp
+autocmd BufNewFile *.pp 0r <sfile>:h/vim/templates/pp
 fun ReplacePlaceholders()
     %s/<FILE>/\=expand("%")/ge
     %s/<YEAR>/\=strftime("%Y")/ge
@@ -76,4 +77,4 @@ fun ReplacePlaceholders()
     %s/<AUTHOR>/Scott Wales <scott.wales@unimelb.edu.au>/ge
 endfun
 autocmd BufNewFile *.c,*.cpp,*.h,*.hpp,*.f90 call ReplacePlaceholders()|normal G
-autocmd BufNewFile *.sh,*.py call ReplacePlaceholders()|normal G
+autocmd BufNewFile *.sh,*.py,*.pp call ReplacePlaceholders()|normal G
