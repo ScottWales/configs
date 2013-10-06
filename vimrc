@@ -21,6 +21,7 @@ Bundle 'tpope/vim-git'
 Bundle 'altercation/vim-colors-solarized'
 " Bundle 'Rip-Rip/clang_complete'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'scrooloose/syntastic'
 
 " Fortran
 let fortran_free_source=1
