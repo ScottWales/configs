@@ -24,6 +24,9 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'scrooloose/syntastic'
 Bundle 'rodjek/vim-puppet'
 
+" Man page viewer
+source $VIMRUNTIME/ftplugin/man.vim
+
 " Fortran
 let fortran_free_source=1
 
