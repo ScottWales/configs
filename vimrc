@@ -23,6 +23,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'scrooloose/syntastic'
 Bundle 'rodjek/vim-puppet'
+Bundle 'godlygeek/tabular'
 
 " Man page viewer
 source $VIMRUNTIME/ftplugin/man.vim
