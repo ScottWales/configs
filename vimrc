@@ -43,6 +43,9 @@ let c_impl_defined = 1
 
 let fortran_do_enddo=1
 
+" Don't put fortran module files from syntax checking in the current directory
+let g:syntastic_fortran_compiler_options="-J/tmp -fimplicit-none"
+
 " Status bar
 set laststatus=2
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
@@ -62,6 +65,8 @@ set hlsearch
 
 " Indenting
 set cinoptions=(0 " Align at open brackets
+
+autocmd BufNewFile,BufRead *.pf set filetype=fortran
 
 autocmd BufNewFile *.c,*.cpp,*.h,*.hpp 0r <sfile>:h/vim/templates/c
 autocmd BufNewFile *.f90 0r <sfile>:h/vim/templates/f
