@@ -25,6 +25,7 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'scrooloose/syntastic'
 Bundle 'rodjek/vim-puppet'
 Bundle 'godlygeek/tabular'
+Bundle 'mitsuhiko/vim-jinja'
 
 " Man page viewer
 source $VIMRUNTIME/ftplugin/man.vim
