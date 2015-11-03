@@ -27,6 +27,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'rodjek/vim-puppet'
 Bundle 'godlygeek/tabular'
 Bundle 'mitsuhiko/vim-jinja'
+Bundle 'rollxx/vim-antlr'
 
 " Man page viewer
 source $VIMRUNTIME/ftplugin/man.vim
@@ -84,7 +85,7 @@ fun ReplacePlaceholders()
     %s/<YEAR>/\=strftime("%Y")/ge
     %s/<GUARD>/\=substitute(toupper(fnamemodify(expand("%"),":t")),"\\.","_","g")/ge
     %s/<AUTHOR>/Scott Wales <scott.wales@unimelb.edu.au>/ge
-    %s/<COPYOWNER>/ARC Centre of Excellence for Climate Systems Science/ge
+    %s/<COPYOWNER>/Scott Wales/ge
 endfun
 autocmd BufNewFile *.c,*.cpp,*.h,*.hpp,*.f90 call ReplacePlaceholders()|normal G
 autocmd BufNewFile *.sh,*.py,*.pp call ReplacePlaceholders()|normal G
