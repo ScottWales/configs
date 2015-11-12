@@ -19,12 +19,14 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-sensible'
 Bundle 'altercation/vim-colors-solarized'
-"Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'scrooloose/syntastic'
 Bundle 'rodjek/vim-puppet'
 Bundle 'godlygeek/tabular'
+Bundle 'mitsuhiko/vim-jinja'
 
 " Man page viewer
 source $VIMRUNTIME/ftplugin/man.vim
@@ -68,6 +70,7 @@ set hlsearch
 set cinoptions=(0 " Align at open brackets
 
 autocmd BufNewFile,BufRead *.pf set filetype=fortran
+autocmd BufNewFile,BufRead *.f90,*.F90,*.pf :compiler ifort
 
 autocmd BufNewFile *.c,*.cpp,*.h,*.hpp 0r <sfile>:h/vim/templates/c
 autocmd BufNewFile *.f90 0r <sfile>:h/vim/templates/f
@@ -86,3 +89,5 @@ endfun
 autocmd BufNewFile *.c,*.cpp,*.h,*.hpp,*.f90 call ReplacePlaceholders()|normal G
 autocmd BufNewFile *.sh,*.py,*.pp call ReplacePlaceholders()|normal G
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+let g:clang_library_path="/usr/lib"
