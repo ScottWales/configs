@@ -18,8 +18,9 @@ let g:vundle_default_git_proto = 'git'
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
+Bundle 'tpope/vim-markdown'
 Bundle 'altercation/vim-colors-solarized'
-" Bundle 'Rip-Rip/clang_complete'
+"Bundle 'Valloric/YouCompleteMe'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'scrooloose/syntastic'
 Bundle 'rodjek/vim-puppet'
@@ -84,3 +85,4 @@ fun ReplacePlaceholders()
 endfun
 autocmd BufNewFile *.c,*.cpp,*.h,*.hpp,*.f90 call ReplacePlaceholders()|normal G
 autocmd BufNewFile *.sh,*.py,*.pp call ReplacePlaceholders()|normal G
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
