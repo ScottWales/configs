@@ -12,5 +12,7 @@ fi
 export EDITOR=vim
 export GEDITOR=gvim
 
-configpath="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-eval $(dircolors $configpath/dircolors)
+if [[ "$(uname)" == "Linux" ]]; then
+    configpath="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    eval $(dircolors $configpath/dircolors)
+fi
