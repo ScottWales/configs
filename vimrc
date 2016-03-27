@@ -70,6 +70,9 @@ set hlsearch
 " Indenting
 set cinoptions=(0 " Align at open brackets
 
+let g:git_email=substitute(system('git config --global --get user.email'), '^\s*\(.\{-}\)\s*\n','\1','')
+let g:git_name=substitute(system('git config --global --get user.name'), '^\s*\(.\{-}\)\s*\n','\1','')
+
 autocmd BufNewFile,BufRead *.pf set filetype=fortran
 autocmd BufNewFile,BufRead *.f90,*.F90,*.pf :compiler ifort
 
@@ -84,8 +87,8 @@ fun ReplacePlaceholders()
     %s/<FILE>/\=expand("%")/ge
     %s/<YEAR>/\=strftime("%Y")/ge
     %s/<GUARD>/\=substitute(toupper(fnamemodify(expand("%"),":t")),"\\.","_","g")/ge
-    %s/<AUTHOR>/Scott Wales <scott.wales@unimelb.edu.au>/ge
-    %s/<COPYOWNER>/Scott Wales/ge
+    %s/<AUTHOR>/\=g:git_name . ' <'.g:git_email.'>'/ge
+    %s/<COPYOWNER>/\=g:git_name/ge
 endfun
 autocmd BufNewFile *.c,*.cpp,*.h,*.hpp,*.f90 call ReplacePlaceholders()|normal G
 autocmd BufNewFile *.sh,*.py,*.pp call ReplacePlaceholders()|normal G
