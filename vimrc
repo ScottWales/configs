@@ -89,5 +89,6 @@ fun ReplacePlaceholders()
 endfun
 autocmd BufNewFile *.c,*.cpp,*.h,*.hpp,*.f90 call ReplacePlaceholders()|normal G
 autocmd BufNewFile *.sh,*.py,*.pp call ReplacePlaceholders()|normal G
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 let g:clang_library_path="/usr/lib"
