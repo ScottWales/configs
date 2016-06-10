@@ -2,32 +2,31 @@ set nocompatible
 
 " Swap ; and :
 nnoremap ; :
-nnoremap : ;
 
 execute "set rtp+=".expand("<sfile>:h")."/vim"
 
 " Load Bundles:
 " =============
-" Mac needs filetype to be toggled, else vim's return code will be nonzero
-filetype on
 filetype off
-execute "set rtp+=".expand("<sfile>:h")."/vim/bundle/vundle"
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 let g:vundle_default_git_proto = 'git'
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-git'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-sensible'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'scrooloose/syntastic'
-Bundle 'rodjek/vim-puppet'
-Bundle 'godlygeek/tabular'
-Bundle 'mitsuhiko/vim-jinja'
-Bundle 'rollxx/vim-antlr'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-sensible'
+Plugin 'altercation/vim-colors-solarized'
+"Plugin 'Valloric/YouCompleteMe'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'scrooloose/syntastic'
+Plugin 'rodjek/vim-puppet'
+Plugin 'godlygeek/tabular'
+Plugin 'mitsuhiko/vim-jinja'
+Plugin 'rollxx/vim-antlr'
+
+call vundle#end()
 
 " Man page viewer
 source $VIMRUNTIME/ftplugin/man.vim
