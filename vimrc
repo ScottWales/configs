@@ -8,9 +8,11 @@ execute "set rtp+=".expand("<sfile>:h")."/vim"
 
 " Load Bundles:
 " =============
-" Mac needs filetype to be toggled, else vim's return code will be nonzero
-filetype on
-filetype off
+if (has('macunix'))
+    " Mac needs filetype to be toggled, else vim's return code will be nonzero
+    filetype on
+    filetype off
+endif
 execute "set rtp+=".expand("<sfile>:h")."/vim/bundle/vundle"
 call vundle#rc()
 
@@ -21,12 +23,13 @@ Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-sensible'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'scrooloose/syntastic'
+"Bundle 'Valloric/YouCompleteMe'
+" Bundle 'airblade/vim-gitgutter'
+"Bundle 'scrooloose/syntastic'
 Bundle 'rodjek/vim-puppet'
 Bundle 'godlygeek/tabular'
 Bundle 'mitsuhiko/vim-jinja'
+Bundle 'exu/pgsql.vim'
 
 " Man page viewer
 source $VIMRUNTIME/ftplugin/man.vim
@@ -47,7 +50,7 @@ let c_impl_defined = 1
 let fortran_do_enddo=1
 
 " Don't put fortran module files from syntax checking in the current directory
-let g:syntastic_fortran_compiler_options="-J/tmp -fimplicit-none"
+"let g:syntastic_fortran_compiler_options="-J/tmp -fimplicit-none"
 
 " Status bar
 set laststatus=2
@@ -90,3 +93,5 @@ autocmd BufNewFile *.c,*.cpp,*.h,*.hpp,*.f90 call ReplacePlaceholders()|normal G
 autocmd BufNewFile *.sh,*.py,*.pp call ReplacePlaceholders()|normal G
 
 let g:clang_library_path="/usr/lib"
+
+let g:syntastic_fortran_compiler="ifort"
