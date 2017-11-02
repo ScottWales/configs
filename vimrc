@@ -8,6 +8,11 @@ execute "set rtp+=".expand("<sfile>:h")."/vim"
 " Load Bundles:
 " =============
 filetype off
+if (has('macunix'))
+    " Mac needs filetype to be toggled, else vim's return code will be nonzero
+    filetype on
+    filetype off
+endif
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -25,6 +30,7 @@ Plugin 'rodjek/vim-puppet'
 Plugin 'godlygeek/tabular'
 Plugin 'mitsuhiko/vim-jinja'
 Plugin 'rollxx/vim-antlr'
+Plugin 'exu/pgsql.vim'
 
 call vundle#end()
 
@@ -47,7 +53,7 @@ let c_impl_defined = 1
 let fortran_do_enddo=1
 
 " Don't put fortran module files from syntax checking in the current directory
-let g:syntastic_fortran_compiler_options="-J/tmp -fimplicit-none"
+"let g:syntastic_fortran_compiler_options="-J/tmp -fimplicit-none"
 
 " Status bar
 set laststatus=2
@@ -94,3 +100,5 @@ autocmd BufNewFile *.sh,*.py,*.pp call ReplacePlaceholders()|normal G
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 let g:clang_library_path="/usr/lib"
+
+let g:syntastic_fortran_compiler="ifort"
