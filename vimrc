@@ -2,14 +2,16 @@ set nocompatible
 
 " Swap ; and :
 nnoremap ; :
-nnoremap : ;
 
 execute "set rtp+=".expand("<sfile>:h")."/vim"
 
 " Load Bundles:
 " =============
-" Mac needs filetype to be toggled, else vim's return code will be nonzero
-filetype on
+if (has('macunix'))
+    " Mac needs filetype to be toggled, else vim's return code will be nonzero
+    filetype on
+    filetype off
+endif
 filetype off
 set rtp+=~/.vim/bundle/vundle.vim
 call vundle#begin()
@@ -50,7 +52,7 @@ let c_impl_defined = 1
 let fortran_do_enddo=1
 
 " Don't put fortran module files from syntax checking in the current directory
-let g:syntastic_fortran_compiler_options="-J/tmp -fimplicit-none"
+"let g:syntastic_fortran_compiler_options="-J/tmp -fimplicit-none"
 
 " Status bar
 set laststatus=2
@@ -72,7 +74,11 @@ set hlsearch
 " Indenting
 set cinoptions=(0 " Align at open brackets
 
+let g:git_email=substitute(system('git config --global --get user.email'), '^\s*\(.\{-}\)\s*\n','\1','')
+let g:git_name=substitute(system('git config --global --get user.name'), '^\s*\(.\{-}\)\s*\n','\1','')
+
 autocmd BufNewFile,BufRead *.pfunit set filetype=fortran
+autocmd BufNewFile,BufRead *.pf set filetype=fortran
 autocmd BufNewFile,BufRead *.f90,*.F90,*.pf :compiler ifort
 
 autocmd BufNewFile *.c,*.cpp,*.h,*.hpp 0r <sfile>:h/vim/templates/c
@@ -86,11 +92,13 @@ fun ReplacePlaceholders()
     %s/<FILE>/\=expand("%")/ge
     %s/<YEAR>/\=strftime("%Y")/ge
     %s/<GUARD>/\=substitute(toupper(fnamemodify(expand("%"),":t")),"\\.","_","g")/ge
-    %s/<AUTHOR>/Scott Wales <scott.wales@unimelb.edu.au>/ge
-    %s/<COPYOWNER>/ARC Centre of Excellence for Climate Systems Science/ge
+    %s/<AUTHOR>/\=g:git_name . ' <'.g:git_email.'>'/ge
+    %s/<COPYOWNER>/\=g:git_name/ge
 endfun
 autocmd BufNewFile *.c,*.cpp,*.h,*.hpp,*.f90 call ReplacePlaceholders()|normal G
 autocmd BufNewFile *.sh,*.py,*.pp call ReplacePlaceholders()|normal G
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 let g:clang_library_path="/usr/lib"
+
+let g:syntastic_fortran_compiler="ifort"
