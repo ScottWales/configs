@@ -11,22 +11,25 @@ execute "set rtp+=".expand("<sfile>:h")."/vim"
 " Mac needs filetype to be toggled, else vim's return code will be nonzero
 filetype on
 filetype off
-execute "set rtp+=".expand("<sfile>:h")."/vim/bundle/vundle"
-call vundle#rc()
+set rtp+=~/.vim/bundle/vundle.vim
+call vundle#begin()
 
 let g:vundle_default_git_proto = 'git'
-Bundle 'gmarik/vundle'
+Bundle 'VundleVim/vundle.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-sensible'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Valloric/YouCompleteMe'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'scrooloose/syntastic'
 Bundle 'rodjek/vim-puppet'
 Bundle 'godlygeek/tabular'
 Bundle 'mitsuhiko/vim-jinja'
+Bundle 'kchmck/vim-coffee-script'
+
+call vundle#end()
 
 " Man page viewer
 source $VIMRUNTIME/ftplugin/man.vim
@@ -69,7 +72,7 @@ set hlsearch
 " Indenting
 set cinoptions=(0 " Align at open brackets
 
-autocmd BufNewFile,BufRead *.pf set filetype=fortran
+autocmd BufNewFile,BufRead *.pfunit set filetype=fortran
 autocmd BufNewFile,BufRead *.f90,*.F90,*.pf :compiler ifort
 
 autocmd BufNewFile *.c,*.cpp,*.h,*.hpp 0r <sfile>:h/vim/templates/c
