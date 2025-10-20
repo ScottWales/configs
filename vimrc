@@ -13,7 +13,7 @@ if (has('macunix'))
     filetype off
 endif
 filetype off
-set rtp+=~/.vim/bundle/vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 let g:vundle_default_git_proto = 'git'
@@ -22,10 +22,10 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-sensible'
-Bundle 'altercation/vim-colors-solarized'
+"Bundle 'altercation/vim-colors-solarized'
 " Bundle 'Valloric/YouCompleteMe'
 Bundle 'airblade/vim-gitgutter'
-Bundle 'scrooloose/syntastic'
+" Bundle 'scrooloose/syntastic'
 Bundle 'rodjek/vim-puppet'
 Bundle 'godlygeek/tabular'
 Bundle 'mitsuhiko/vim-jinja'
@@ -44,7 +44,7 @@ filetype on
 filetype plugin indent on
 syntax enable
 set background=dark
-colorscheme solarized
+"colorscheme solarized
 let c_space_errors = 1
 let c_C99 = 1
 let c_impl_defined = 1
@@ -74,6 +74,8 @@ set hlsearch
 " Indenting
 set cinoptions=(0 " Align at open brackets
 
+set foldlevelstart=99
+
 let g:git_email=substitute(system('git config --global --get user.email'), '^\s*\(.\{-}\)\s*\n','\1','')
 let g:git_name=substitute(system('git config --global --get user.name'), '^\s*\(.\{-}\)\s*\n','\1','')
 
@@ -88,6 +90,7 @@ autocmd BufNewFile *.py 0r <sfile>:h/vim/templates/py
 autocmd BufNewFile *.h $r <sfile>:h/vim/templates/h
 autocmd BufNewFile *.hpp $r <sfile>:h/vim/templates/hpp
 autocmd BufNewFile *.pp 0r <sfile>:h/vim/templates/pp
+autocmd BufNewFile *.pbs 0r <sfile>:h/vim/templates/pbs
 fun ReplacePlaceholders()
     %s/<FILE>/\=expand("%")/ge
     %s/<YEAR>/\=strftime("%Y")/ge
